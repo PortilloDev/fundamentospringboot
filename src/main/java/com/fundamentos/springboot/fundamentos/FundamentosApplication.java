@@ -1,5 +1,6 @@
 package com.fundamentos.springboot.fundamentos;
 
+import com.fundamentos.springboot.fundamentos.bean.LoginInterface;
 import com.fundamentos.springboot.fundamentos.bean.MyBean;
 import com.fundamentos.springboot.fundamentos.bean.MyBeanImplement;
 import com.fundamentos.springboot.fundamentos.bean.MyBeanWithDependency;
@@ -18,10 +19,13 @@ public class FundamentosApplication implements CommandLineRunner {
 	private ComponentDependency componentDependency;
 	private MyBean myBean;
 	private MyBeanWithDependency myBeanWithDependency;
-	public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependency componentDependency, MyBean myBean, MyBeanWithDependency myBeanWithDependency) {
+	private LoginInterface loginInterface;
+
+	public FundamentosApplication(@Qualifier("componentTwoImplement") ComponentDependency componentDependency, MyBean myBean, MyBeanWithDependency myBeanWithDependency, LoginInterface loginInterface) {
 		this.componentDependency = componentDependency;
 		this.myBean = myBean;
 		this.myBeanWithDependency = myBeanWithDependency;
+		this.loginInterface = loginInterface;
 	}
 
 	public static void main(String[] args) {
@@ -33,5 +37,8 @@ public class FundamentosApplication implements CommandLineRunner {
 		componentDependency.saludar();
 		myBean.print();
 		myBeanWithDependency.printWithDependency();
+		loginInterface.printWelcome();
+
+
 	}
 }

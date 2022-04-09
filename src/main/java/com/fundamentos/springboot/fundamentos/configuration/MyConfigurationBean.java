@@ -21,4 +21,8 @@ public class MyConfigurationBean {
         return new MyBeanWithDpendencyImplements(myOperation);
     }
 
+    @Bean
+    public LoginInterface beanOperationOperationWelcome() {
+        return new LogImplement();
+    }
 }
